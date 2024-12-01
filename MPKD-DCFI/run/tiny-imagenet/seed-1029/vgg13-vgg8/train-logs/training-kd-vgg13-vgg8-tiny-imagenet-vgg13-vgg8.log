@@ -1,0 +1,51 @@
+2024-08-26 20:22:08,366 - main - INFO - Start running with config: 
+dataset:
+  img_h: 64
+  img_w: 64
+  name: tiny-imagenet
+  num_classes: 200
+  root: ./datasets/
+kd:
+  loss_weights:
+    classify_weight: 2.0
+    kd_weight: 1.0
+    other_kd: 1000.0
+  student:
+    name: vgg8
+  teacher:
+    checkpoint: ./run/tiny-imagenet/seed-1029/single/vgg13/ckpt/best.pth
+    name: vgg13
+kd_loss:
+  KD_T: 4
+  T: 4
+  homo: true
+  name: AT
+training:
+  batch_size: 64
+  epochs: 240
+  init_epoch: 0
+  lr: 0.05
+  lr_agent: 0.025
+  lr_decay_epochs:
+  - 150
+  - 180
+  - 210
+  lr_decay_rate: 0.1
+  num_workers: 8
+  optimizer:
+    lr: 0.05
+    momentum: 0.9
+    name: SGD
+    weight_decay: 0.0005
+    weight_decay_agent: 0.001
+    weight_decay_stage2: 0.0005
+  print_iter_freq: 100
+  save_ep_freq: 30
+  seed: 1029
+validation:
+  batch_size: 64
+  num_workers: 8
+
+2024-08-26 20:22:08,490 - main - INFO - Set seed : 1029
+2024-08-26 20:24:47,754 - main - INFO - num_classes: 200
+2024-08-26 20:24:47,755 - main - INFO - Loading teacher and student...

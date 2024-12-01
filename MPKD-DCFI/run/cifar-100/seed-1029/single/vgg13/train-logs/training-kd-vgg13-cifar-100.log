@@ -1,0 +1,50 @@
+2023-10-09 11:12:25,277 - main - INFO - Start running with config: 
+dataset:
+  img_h: 32
+  img_w: 32
+  name: CIFAR100
+  num_classes: 100
+  root: ./datasets/
+kd:
+  loss_weights:
+    classify_weight: 1.0
+model:
+  name: vgg13
+training:
+  batch_size: 64
+  epochs: 240
+  gpu_preserve: 0.75
+  init_epoch: 0
+  lr_decay_epochs:
+  - 150
+  - 180
+  - 210
+  lr_decay_rate: 0.1
+  num_workers: 8
+  optimizer:
+    lr: 0.05
+    momentum: 0.9
+    name: SGD
+    weight_decay: 0.0005
+  print_iter_freq: 100
+  save_ep_freq: 50
+  seed: 1029
+validation:
+  batch_size: 128
+  num_workers: 8
+
+2023-10-09 11:12:25,282 - main - INFO - Set seed : 1029
+2023-10-09 11:12:25,305 - main - INFO - Loading datasets...
+2023-10-09 11:12:27,990 - main - INFO - Loading model...
+2023-10-09 11:12:28,185 - train - INFO - Start training...
+2023-10-09 11:12:28,186 - train - INFO - Start training epoch: 1, current lr: 0.050000
+2023-10-09 11:12:28,186 - train - INFO - vgg13
+2023-10-09 11:12:28,187 - train_epoch - INFO - Start training one epoch...
+2023-10-09 11:14:02,844 - train_epoch - INFO - Epoch:   1|240, idx: 0, total iter: 1, loss: 4.59689, acc@1: 0.0000, acc@5: 0.0781
+2023-10-09 11:14:09,656 - train_epoch - INFO - Epoch:   1|240, idx: 100, total iter: 101, loss: 3.97847, acc@1: 0.0625, acc@5: 0.3125
+2023-10-09 11:14:12,357 - train_epoch - INFO - Epoch:   1|240, idx: 200, total iter: 201, loss: 3.99763, acc@1: 0.0938, acc@5: 0.2656
+2023-10-09 11:14:14,840 - train_epoch - INFO - Epoch:   1|240, idx: 300, total iter: 301, loss: 3.92862, acc@1: 0.0469, acc@5: 0.2969
+2023-10-09 11:14:17,938 - train_epoch - INFO - Epoch:   1|240, idx: 400, total iter: 401, loss: 3.65484, acc@1: 0.1562, acc@5: 0.3750
+2023-10-09 11:14:20,706 - train_epoch - INFO - Epoch:   1|240, idx: 500, total iter: 501, loss: 3.57041, acc@1: 0.1562, acc@5: 0.3438
+2023-10-09 11:14:23,550 - train_epoch - INFO - Epoch:   1|240, idx: 600, total iter: 601, loss: 3.34746, acc@1: 0.1562, acc@5: 0.4219
+2023-10-09 11:14:26,016 - train_epoch - INFO - Epoch:   1|240, idx: 700, total iter: 701, loss: 3.24690, acc@1: 0.1719, acc@5: 0.4531
